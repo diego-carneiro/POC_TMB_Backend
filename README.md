@@ -18,7 +18,6 @@ API REST robusta para gestão de pedidos com processamento assíncrono de mensag
 - ✅ **Processamento Assíncrono**: Worker service para processamento via Azure Service Bus
 - ✅ **Arquitetura Limpa**: Separação em camadas (Core, Infrastructure, API, Worker)
 - ✅ **Persistência Robusta**: Entity Framework Core com PostgreSQL
-- ✅ **Containerização**: Docker Compose para ambiente completo
 - ✅ **Logs Estruturados**: Logging detalhado para monitoramento
 - ✅ **Validação**: Data Annotations e tratamento de erros
 
@@ -127,21 +126,11 @@ cd order-management-backend
 }
 ```
 
-### 4. Executar com Docker (Recomendado)
-
-```bash
-# Subir todos os serviços
-docker-compose up --build
-
-# Em background
-docker-compose up -d --build
-```
+### 4. Executar Localmente (Desenvolvimento)
 
 **Acesse:**
 - 🔌 API: http://localhost:5004
 - 📖 Swagger: http://localhost:5004/swagger
-
-### 5. Executar Localmente (Desenvolvimento)
 
 ```bash
 # Restaurar dependências
