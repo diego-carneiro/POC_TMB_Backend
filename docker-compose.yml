@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: orderdb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - order-network
+
+  api:
+    build:
+      context: .
+      dockerfile: OrderManagement.Api/Dockerfile
+    ports:
+      - "5000:80"
+    depends_on:
+      - postgres
+    environment:
+      - ConnectionStrings__DefaultConnection=Host=postgres;Database=orderdb;Username=postgres;Password=postgres
+      - ASPNETCORE_ENVIRONMENT=Development
+    networks:
+      - order-network
+
+  worker:
+    build:
+      context: .
+      dockerfile: OrderManagement.Worker/Dockerfile
+    depends_on:
+      - postgres
+    environment:
+      - ConnectionStrings__DefaultConnection=Host=postgres;Database=orderdb;Username=postgres;Password=postgres
+      - ASPNETCORE_ENVIRONMENT=Development
+    networks:
+      - order-network
+
+volumes:
+  postgres_data:
+
+networks:
+  order-network:
+    driver: bridge

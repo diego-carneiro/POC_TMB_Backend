@@ -1,0 +1,86 @@
+# -------------------------
+# Build / Output
+# -------------------------
+bin/
+obj/
+[Bb]uild/
+publish/
+artifacts/
+
+# -------------------------
+# IDE / Editor
+# -------------------------
+.vs/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Rider caches
+.idea/
+*.sln.iml
+
+# VS Code
+.vscode/
+
+# -------------------------
+# Logs
+# -------------------------
+*.log
+*.tlog
+
+# -------------------------
+# Configuração com segredos
+# -------------------------
+# Mantém apenas o appsettings.json "limpo" e ignora os de ambiente
+#appsettings.*.json
+OrderManagement.Worker/appsettings.json
+ServiceBusTest/appsettings.json
+OrderManagement.Api/appsettings.json
+
+# -------------------------
+# Pacotes / dependências
+# -------------------------
+*.nupkg
+packages/
+*.snupkg
+
+# -------------------------
+# Testes
+# -------------------------
+TestResults/
+*.coverage
+*.coveragexml
+
+# -------------------------
+# Resharper
+# -------------------------
+_ReSharper*/
+*.[Rr]e[Ss]harper
+
+# -------------------------
+# Sistema Operacional
+# -------------------------
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+desktop.ini
+
+# -------------------------
+# Backup / temporários
+# -------------------------
+*.bak
+*.tmp
+*.temp
+~$*
+
+# -------------------------
+# Ferramentas / Outros
+# -------------------------
+# Rider / JetBrains cache
+.idea/
+
+# Docker local volumes
+docker-compose.override.yml
